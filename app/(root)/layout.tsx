@@ -21,7 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ClerkProvider>
+      <ClerkProvider
+      >
         <body className={inter.className}>
           <Topbar />
           <main className="flex flex-row">

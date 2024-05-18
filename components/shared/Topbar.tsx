@@ -12,7 +12,7 @@ const Topbar = () => {
         <p className='text-heading3-bold text-light-1 max-xs:hidden'>Revibe</p>
       </Link>
 
-      <div className='flex items-center gap-1'>
+      <div className='flex items-center gap-1 text-white'>
         <div className='block md:hidden'>
           <SignedIn>
             <SignOutButton>

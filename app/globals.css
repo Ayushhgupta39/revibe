@@ -59,7 +59,7 @@
   }
 
   .topbar {
-    @apply fixed top-0 z-30 flex w-full items-center justify-between bg-zinc-900 px-6 py-3;
+    @apply fixed top-0 z-30 flex w-full text-white items-center justify-between bg-zinc-900 px-6 py-3;
   }
 
   .bottombar {
@@ -118,7 +118,7 @@
 
 /* Clerk Responsive fix */
 .cl-organizationSwitcherTrigger .cl-userPreview .cl-userPreviewTextContainer {
-  @apply max-sm:hidden;
+  @apply max-sm:hidden text-white;
 }
 
 .cl-organizationSwitcherTrigger
@@ -126,6 +126,11 @@
   .cl-organizationPreviewTextContainer {
   @apply max-sm:hidden;
 }
+
+.cl-organizationSwitcherTriggerIcon {
+  @apply text-white;
+}
+
 
 /* Shadcn Component Styles */
 
