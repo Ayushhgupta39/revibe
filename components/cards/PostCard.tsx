@@ -36,9 +36,14 @@ function PostCard({
   community,
   createdAt,
   comments,
+  isComment,
 }: Props) {
   return (
-    <article className="bg-zinc-900 text-white p-2 rounded-lg m-4 border border-zinc-800">
+    <article
+      className={` text-white rounded-lg m-4 border border-zinc-800 ${
+        isComment ? "px-0 xs:px-7" : "bg-zinc-900 p-2"
+      }`}
+    >
       <div className="flex justify-between p-2">
         <div className="flex items-center gap-4">
           <div>
@@ -56,11 +61,11 @@ function PostCard({
                 {author.name}{" "}
               </h4>{" "}
             </Link>
-            <p className="text-gray-400 flex text-sm items-center">
+            <small className="text-gray-400 flex text-sm items-center">
               <Clock3 size={14} className="mr-1" />
               12 minutes ago on{" "}
               <span className="mx-1 text-gray-200"> 30 Stock Contributor</span>
-            </p>
+            </small>
           </div>
         </div>
         <div className="flex items-center text-gray-400 gap-4">
@@ -72,7 +77,7 @@ function PostCard({
         <p className="text-sm">{content}</p>
       </div>
 
-      <div className="p-1 flex justify-evenly text-sm">
+      <div className="p-1 flex justify-evenly text-sm border-t border-t-zinc-800">
         <div className="flex items-center justify-center gap-2 cursor-pointer hover:bg-zinc-800 p-2 rounded-lg w-full transition-all">
           <ThumbsUpIcon />
           <p>Like</p>
@@ -89,6 +94,14 @@ function PostCard({
           <p>Share</p>
         </div>
       </div>
+
+      {isComment && comments.length > 0 && (
+        <Link href={`/post/${id}`}>
+          <p className="mt-1 text-subtle-medium text-gray-1">
+            {comments.length}
+          </p>
+        </Link>
+      )}
     </article>
   );
 }

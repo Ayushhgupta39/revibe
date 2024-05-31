@@ -5,6 +5,6 @@ export default authMiddleware({
     ignoredRoutes: ["/api/webhook/clerk"]
 });
 
-export const config = {
-  matcher: ["/((?!.+.[w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
-};
+// export const config = {
+//   matcher: ["/((?!.+.[w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+// };

@@ -42,11 +42,11 @@ export function formatThreadCount(count: number): string {
 }
 
 export const getInitials = (name: string) => {
-  const names = name.split(' ');
+  const names = name?.split(' ');
   let initials = '';
 
-  for (let i = 0; i < names.length; i++) {
-    if (names[i].length > 0) {
+  for (let i = 0; i < names?.length; i++) {
+    if (names[i]?.length > 0) {
       initials += names[i][0].toUpperCase();
     }
   }

@@ -6,6 +6,7 @@ import {
   SquarePenIcon,
   UserRoundIcon,
 } from "@/utils/Icons";
+import { GalleryVerticalEnd, Tags, TextQuote, Users } from "lucide-react";
 
 export const sidebarItems = [
   {
@@ -41,13 +42,13 @@ export const sidebarItems = [
 ];
 
 export const profileTabs = [
-  { value: "threads", label: "Threads", icon: "/assets/reply.svg" },
-  { value: "replies", label: "Replies", icon: "/assets/members.svg" },
-  { value: "tagged", label: "Tagged", icon: "/assets/tag.svg" },
+  { value: "posts", label: "Posts", icon: <GalleryVerticalEnd size={14} /> },
+  { value: "replies", label: "Replies", icon: <TextQuote size={16} /> },
+  { value: "tagged", label: "Tagged", icon: <Tags size={16} /> },
 ];
 
 export const communityTabs = [
-  { value: "threads", label: "Threads", icon: "/assets/reply.svg" },
-  { value: "members", label: "Members", icon: "/assets/members.svg" },
-  { value: "requests", label: "Requests", icon: "/assets/request.svg" },
+  { value: "posts", label: "Posts", icon: <GalleryVerticalEnd size={16} /> },
+  { value: "members", label: "Members", icon: <TextQuote size={16} /> },
+  { value: "requests", label: "Requests", icon: <Users size={16} /> },
 ];
