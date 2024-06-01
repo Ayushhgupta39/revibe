@@ -8,7 +8,7 @@ import { connectDB } from "../mongoose";
 interface Params {
   text: string;
   author: string;
-  communityId: string;
+  communityId: string | null;
   path: string;
 }
 

@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { User } from "../models/user.model";
 import { connectDB } from "../mongoose";
 import { Post } from "../models/post.model";
+import { SortOrder } from "mongoose";
 
 interface Params {
   userId: string;
@@ -12,6 +13,28 @@ interface Params {
   bio: string;
   image: string;
   path: string;
+}
+
+export async function fetchAllUsers({
+  userId,
+  searchString = "",
+  pageNumber = 1,
+  pageSize = 20,
+  sortBy = "desc",
+}: {
+  userId: string;
+  searchString?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  sortBy?: SortOrder;
+}) {
+  try {
+    connectDB();
+
+    const skipAmount = (pageNumber - 1) * pageSize;
+
+    const regex = new RegExp(searchString, "i");
+  } catch (error) {}
 }
 
 export async function fetchUser(userId: string) {
@@ -24,7 +47,7 @@ export async function fetchUser(userId: string) {
     //   model: Community
     // })
   } catch (error: any) {
-    throw new Error(`Failed to fetch user: ${error.message}`)
+    throw new Error(`Failed to fetch user: ${error.message}`);
   }
 }
 
@@ -61,7 +84,7 @@ export async function updateUser({
 
 export async function fetchUserPosts(userId: string) {
   try {
-    connectDB()
+    connectDB();
 
     // TODO: Populate community
     const posts = await User.findOne({ id: userId }).populate({
@@ -73,13 +96,13 @@ export async function fetchUserPosts(userId: string) {
         populate: {
           path: "author",
           model: User,
-          select: "name image id"
-        }
-      }
-    })
+          select: "name image id",
+        },
+      },
+    });
 
     return posts;
   } catch (error: any) {
-    throw new Error(`Failed to fetch user posts: ${error.message}`)
+    throw new Error(`Failed to fetch user posts: ${error.message}`);
   }
 }
