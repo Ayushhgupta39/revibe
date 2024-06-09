@@ -15,7 +15,7 @@
 
   /* Activity */
   .activity-card {
-    @apply flex items-center gap-2 rounded-md bg-dark-2 px-7 py-4;
+    @apply flex items-center gap-2 rounded-md bg-zinc-900 border border-zinc-800 px-7 py-4;
   }
 
   /* No Result */
@@ -39,7 +39,7 @@
 
   /* User card */
   .user-card {
-    @apply flex flex-col justify-between gap-4 max-xs:rounded-xl max-xs:bg-dark-3 max-xs:p-4 xs:flex-row xs:items-center;
+    @apply flex flex-col bg-zinc-900 border border-zinc-800 p-2 px-4 rounded-lg justify-between gap-4 max-xs:rounded-xl max-xs:bg-dark-3 max-xs:p-4 xs:flex-row xs:items-center;
   }
 
   .user-card_avatar {
