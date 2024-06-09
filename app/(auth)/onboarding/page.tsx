@@ -4,10 +4,10 @@ import { currentUser } from "@clerk/nextjs";
 async function Page() {
     const user = await currentUser();
 
-    const userInfo = {};
+    const userInfo: any = {};
 
     const userData = {
-        id: user.id,
+        id: (user && user.id) || "",
         objectId: userInfo?._id,
         username: userInfo?.username || user?.username,
         name: userInfo?.name || user?.firstName || "",
