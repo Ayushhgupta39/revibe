@@ -34,9 +34,10 @@ interface Props {
     bio: string;
     image: string;
   };
+  btnTitle: string;
 }
 
-const AccountProfile = ({ user, btnTitle }) => {
+const AccountProfile = ({ user, btnTitle }: Props) => {
   const [files, setFiles] = useState<File[]>([]);
   const { startUpload } = useUploadThing("media");
   const router = useRouter();
@@ -202,7 +203,7 @@ const AccountProfile = ({ user, btnTitle }) => {
           )}
         />
         <Button className="bg-primary-500" type="submit">
-          Submit
+          {btnTitle}
         </Button>
       </form>
     </Form>

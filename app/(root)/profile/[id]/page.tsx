@@ -1,11 +1,9 @@
-import PostItem from "@/components/forms/PostItem";
 import ProfileHeader from "@/components/shared/ProfileHeader";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { profileTabs } from "@/constants";
-import Image from "next/image";
 import PostsTab from "@/components/shared/PostsTab";
 
 const Page = async ({ params }: { params: { id: string } }) => {

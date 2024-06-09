@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { getInitials } from "@/lib/utils";
+import { formatDateString, getInitials } from "@/lib/utils";
 import { CommentIcon, ShareIcon, ThumbsUpIcon } from "../../utils/Icons";
 import { Clock3, EllipsisVertical } from "lucide-react";
 
@@ -38,6 +38,7 @@ function PostCard({
   comments,
   isComment,
 }: Props) {
+  console.log("comm: ", community)
   return (
     <article
       className={` text-white rounded-lg m-4 border border-zinc-800 ${
@@ -63,8 +64,17 @@ function PostCard({
             </Link>
             <small className="text-gray-400 flex text-sm items-center">
               <Clock3 size={14} className="mr-1" />
-              12 minutes ago on{" "}
-              <span className="mx-1 text-gray-200"> 30 Stock Contributor</span>
+              <span className="flex items-center mt-[3px]">
+                {formatDateString(createdAt)}
+                {!isComment && community && (
+                  <Link href={`/communities/${community.id}`}>
+                    <span className="mx-1 text-gray-200 cursor-pointer">
+                      {" "}
+                      in {community.name}
+                    </span>
+                  </Link>
+                )}
+              </span>
             </small>
           </div>
         </div>
